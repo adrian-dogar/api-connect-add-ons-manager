@@ -1,3 +1,11 @@
+from models.resource import RESOURCES
+
+def api_resources_command(args):
+    print("Available API resources:")
+    print("{:<30} {:<15} {}".format("NAME", "SHORTNAME", "DESCRIPTION"))
+    print("{:<30} {:<15} {}".format("----", "---------", "-----------"))
+    for resource in RESOURCES:
+        print("{:<30} {:<15} {}".format(resource.name, resource.alias, resource.description))
 
 def get_command(args):
     from controllers import get
@@ -24,4 +32,4 @@ def run_func(func_string, args=None):
         exit(1)
 
 def run(args):
-    run_func(f"{args.command}_command", args=args)
+    run_func(f"{args.command.replace('-', '_')}_command", args=args)

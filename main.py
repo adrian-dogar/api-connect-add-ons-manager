@@ -1,5 +1,4 @@
 import json
-
 import globals
 
 from args import home as args_handler
